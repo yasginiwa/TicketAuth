@@ -31,7 +31,7 @@ page {
   flex-flow: row nowrap;
   align-items: center;
   background-color: white;
-  height: 140rpx;
+  height: 260rpx;
   width: 100%;
   margin-bottom: 10rpx;
   transition: left 0.2s ease-in-out;
@@ -41,118 +41,70 @@ page {
   position: relative;
 }
 
-.cell .icon {
-  width: 120rpx;
-  height: 120rpx;
-  margin-left: 5rpx;
-}
-
 .cell .content {
-  margin-left: 5rpx;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-flow: column nowrap;
+  margin-left: 20rpx;
 }
 
-.cell .content .company {
+.cell .content image {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.cell .content text {
   font-size: 28rpx;
-}
-
-.cell .content .name {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  margin-top: 5rpx;
-}
-
-.cell .content .name .nametxt {
-  font-size: 24rpx;
   color: #aaa;
+  margin-left: 10rpx;
 }
 
-.idinput {
+.cell .content .sec1 {
+  font-size: 34rpx;
+}
+
+.cell .content .sec2 {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  width: 190rpx;
+}
+
+.cell .content .sec2 .name {
+  display: inherit;
+  flex-flow: inherit;
+  align-items: inherit;
+}
+
+.cell .content .sec2 .phone {
+  display: inherit;
+  flex-flow: inherit;
+  align-items: inherit;
+  margin-left: 40rpx;
+}
+
+.cell .content .sec3 {
+}
+
+.cell .content .sec3 image {
+  width: 34rpx;
   height: 30rpx;
-  font-size: 24rpx;
-  margin-left: 10rpx;
-  color: #aaa;
-  position: absolute;
-  right: 100rpx;
-  border-bottom: 1rpx solid #ddd;
 }
 
-.idimg {
-  width: 30rpx;
-  height: 30rpx;
-  position: absolute;
-  right: 300rpx;
-}
-
-.idtxt {
-  font-size: 24rpx;
-  color: #aaa;
-  position: absolute;
-  left: 460rpx;
-}
-
-.idphstyle {
-  font-size: 22rpx;
-  color: #ccc;
-}
-
-.cell .content .desc {
+.cell .content .sec4 {
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
-  margin-top: 5rpx;
 }
 
-.cell .content .desc text {
-  font-size: 24rpx;
-  color: #aaa;
-}
-
-.cell .content .desc .priceimg {
-  width: 23rpx;
-  height: 23rpx;
-}
-
-.cell .content .desc .pricetxt {
-  margin-left: 8rpx;
-}
-
-.cell .content .desc .numberimg {
-  margin-left: 20rpx;
-  width: 22rpx;
-  height: 22rpx;
-}
-
-.cell .content .desc .numbertxt {
-  margin-left: 8rpx;
-}
-
-.cell .content .desc .dateimg {
-  margin-left: 20rpx;
-  width: 22rpx;
-  height: 22rpx;
-}
-
-.cell .content .desc .datetxt {
-  margin-left: 10rpx;
-}
-
-.cell .content .desc .numbertxt {
-  margin-left: 10rpx;
+.cell .content .sec5 {
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .cell .auth {
   position: absolute;
   right: 10rpx;
-  width: 80rpx;
-  height: 80rpx;
+  bottom: 10rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 
 .slider {
@@ -169,9 +121,9 @@ page {
   z-index: 2;
   right: 0rpx;
   color: white;
-  height: 140rpx;
+  height: 260rpx;
   font-size: 32rpx;
-  line-height: 140rpx;
+  line-height: 260rpx;
   font-weight: bold;
   top: 0rpx;
 }

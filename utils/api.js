@@ -1,7 +1,7 @@
 const crypto = requirePlugin('Crypto');
 var safeBase64 = require('../utils/safebase64.js')
 
-var host = 'https://ticketapi.hgsp.cn:10444';
+var host = 'http://192.168.10.214:18000';
 var ticketGenUrl = `${host}/icapi/tmticket`,
   ticketQueryUrl = `${host}/icapi/tmticketquery`,
   getwxopenidUrl = `${host}/getwxopenid`,
@@ -21,6 +21,7 @@ var ticketGenUrl = `${host}/icapi/tmticket`,
   addexpectticketUrl = `${host}/addexpectticket`,
   expectunauthUrl = `${host}/expectunauth`,
   expectauthUrl = `${host}/expectauth`,
+  queryregistryUrl = `${host}/queryregistry`,
   token = 'HGCakeECSell',
   appKey = 'SEdDYWtlT3JkZXJBbmRTZWxsMjAxOA==',
   signKey = 'BPe2XMzYP6UydzAuWiPuthAWVrMWkbmC';
@@ -80,6 +81,7 @@ module.exports = {
   addexpectticketUrl: addexpectticketUrl,
   expectunauthUrl: expectunauthUrl,
   expectauthUrl: expectauthUrl,
+  queryregistryUrl: queryregistryUrl,
   encryptContent: encryptContent,
   decryptContent: decryptContent
 };
