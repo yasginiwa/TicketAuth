@@ -38,7 +38,6 @@ Page({
         this.setData({
           expecttickets: res.data.result.recordsets[0].reverse()
         })
-        console.log(this.data.expecttickets);
         wx.hideLoading();
       },
       fail: (res) => {
@@ -57,7 +56,7 @@ Page({
    * 通过点击是绑定的idx返回当前选择的client模型
    */
   selectedModel: function(e) {
-    var idx = e.currentTarget.dataset.idx
+    var idx = e.currentTarget.dataset.idx;
     var expectticket = {};
     var obj = {};
     //遍历client对象数组
@@ -77,7 +76,10 @@ Page({
       title: '审核中...',
     })
 
-    if (isNaN(this.data.netbakeid) || this.data.netbakeid <= 0) {
+    expectticket = this.selectedModel(e);
+    console.log(expectticket);
+
+    if (!ticket.productname || !ticket.price || !ticket.netbakeid) {
       wx.showToast({
         title: 'ID填写不规范',
         image: '../../assets/warning.png',

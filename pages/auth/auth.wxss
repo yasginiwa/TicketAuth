@@ -31,7 +31,7 @@ page {
   flex-flow: row nowrap;
   align-items: center;
   background-color: white;
-  height: 260rpx;
+  height: 350rpx;
   width: 100%;
   margin-bottom: 10rpx;
   transition: left 0.2s ease-in-out;
@@ -48,24 +48,33 @@ page {
 }
 
 .cell .content image {
-  width: 26rpx;
-  height: 26rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 
 .cell .content text {
-  font-size: 28rpx;
+  font-size: 30rpx;
   color: #aaa;
-  margin-left: 10rpx;
 }
 
 .cell .content .sec1 {
+}
+
+.cell .content .sec1 text {
   font-size: 34rpx;
+  font-weight: bold;
+  color: black;
 }
 
 .cell .content .sec2 {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  margin-top: 20rpx;
+}
+
+.cell .content .sec2 text {
+  margin-left: 10rpx;
 }
 
 .cell .content .sec2 .name {
@@ -82,21 +91,100 @@ page {
 }
 
 .cell .content .sec3 {
+  margin-top: 20rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.cell .content .sec3 text {
+  margin-left: 10rpx;
+  margin-top: 4rpx;
 }
 
 .cell .content .sec3 image {
   width: 34rpx;
-  height: 30rpx;
+  height: 32rpx;
 }
 
 .cell .content .sec4 {
   display: flex;
   flex-flow: row nowrap;
+  margin-top: 20rpx;
+}
+
+.cell .content .sec4 text {
+  margin-left: 10rpx;
+}
+
+.cell .content .sec4 .price {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.cell .content .sec4 .price image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.cell .content .sec4 .netbakeid {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-left: 40rpx;
+}
+
+.cell .content .sec4 .netbakeid image {
+  width: 36rpx;
+  height: 36rpx;
 }
 
 .cell .content .sec5 {
   display: flex;
   flex-flow: row nowrap;
+  margin-top: 20rpx;
+}
+
+.cell .content .sec5 text {
+  margin-left: 10rpx;
+}
+
+.cell .content .sec5 .numbers {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.cell .content .sec5 .date {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-left: 40rpx;
+}
+
+.phstyle {
+  font-size: 30rpx;
+  color: #ccc;
+}
+
+.productnameInput {
+  font-size: 30rpx;
+  border-bottom: solid #ccc 1rpx;
+  margin-left: 10rpx;
+}
+
+.priceInput {
+  font-size: 30rpx;
+  border-bottom: solid #ccc 1rpx;
+  margin-left: 10rpx;
+  width: 100rpx;
+}
+
+.netbakeidInput {
+  font-size: 30rpx;
+  border-bottom: solid #ccc 1rpx;
+  margin-left: 10rpx;
 }
 
 .cell .auth {
@@ -121,9 +209,9 @@ page {
   z-index: 2;
   right: 0rpx;
   color: white;
-  height: 260rpx;
+  height: 350rpx;
   font-size: 32rpx;
-  line-height: 260rpx;
+  line-height: 350rpx;
   font-weight: bold;
   top: 0rpx;
 }

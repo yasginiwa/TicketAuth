@@ -4,44 +4,9 @@
   <text>暂无客户~~</text>
 </view>
 
-<view class='slider' wx:if='{{expecttickets.length > 0}}' wx:for='{{expecttickets}}' wx:key='' data-idx='{{item.e_id}}'>
+<view class='slider' wx:if='{{expecttickets.length > 0}}' wx:for='{{expecttickets}}' wx:key=''>
   <view class='cell' style='{{item.slideStyle}};' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' data-idx='{{item.e_id}}'>
 
-    <!-- <view class='content'>
-      <text class='company'>{{item.company}}</text>
-      <view class='regInfo'>
-        <image src='../../assets/client.png'></image>
-        <text></text>
-        <image src='../../assets/phone.png'></image>
-        <text></text>
-      </view>
-
-
-     <view class='name'>
-        <text class='nametxt'>{{item.productname}}</text>
-      </view>
-
-      <view class='desc'>
-
-
-        <image class='priceimg' src='../../assets/expectprice.png'></image>
-        <text class='pricetxt'>{{item.price}}元</text>
-
-        <image class='numberimg' src='../../assets/numbers.png'></image>
-        <text class='numbertxt'>{{item.expectnumbers}}张</text>
-
-        <image class='dateimg' src='../../assets/authdate.png'></image>
-        <text class='datetxt'>{{item.expectdate}}</text>
-      </view>
-    </view>
-
-    <view class='netbakeid'>
-      <image class='idimg' src='../../assets/id.png'></image>
-      <view class='idinput' wx:if='{{item.authstatus==0}}'>
-        <input cursor-spacing='20' bindinput='onIdInput' placeholder='一网烘焙券建档ID' placeholder-class='idphstyle'></input>
-      </view>
-      <text class='idtxt' wx:if='{{item.authstatus==1}}'>{{item.netbakeid}}</text>
-    </view> -->
     <view class='content'>
 
       <view class='sec1'>
@@ -62,25 +27,34 @@
 
       <view class='sec3'>
         <image src='../../assets/ticket.png'></image>
-        <text class='productname'>{{item.productname}}</text>
+        <text wx:if='{{item.authstatus == 1}}' class='productname'>{{item.productname}}</text>
+        <view class='productnameInput' wx:if='{{item.authstatus == 0}}'>
+          <input placeholder-class='phstyle' placeholder='卡券名称'></input>
+        </view>
       </view>
 
       <view class='sec4'>
         <view class='price'>
           <image src='../../assets/expectprice.png'></image>
-          <text>{{item.price}}</text>
+          <text wx:if='{{item.authstatus == 1}}'>{{item.price}}元</text>
+          <view class='priceInput' wx:if='{{item.authstatus == 0}}'>
+            <input placeholder-class='phstyle' placeholder='价格'></input>
+          </view>
         </view>
 
         <view class='netbakeid'>
           <image src='../../assets/id.png'></image>
-          <text>{{item.netbakeid}}</text>
+          <text wx:if='{{item.authstatus == 1}}'>{{item.netbakeid}}</text>
+          <view class='netbakeidInput' wx:if='{{item.authstatus == 0}}'>
+            <input placeholder-class='phstyle' placeholder='一网烘焙标识符'></input>
+          </view>
         </view>
       </view>
 
       <view class='sec5'>
         <view class='numbers'>
           <image src='../../assets/numbers.png'></image>
-          <text>{{item.expectnumbers}}</text>
+          <text>{{item.expectnumbers}}张</text>
         </view>
 
         <view class='date'>
