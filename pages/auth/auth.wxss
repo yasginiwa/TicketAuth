@@ -172,6 +172,7 @@ page {
   font-size: 30rpx;
   border-bottom: solid #ccc 1rpx;
   margin-left: 10rpx;
+  color: #aaa;
 }
 
 .priceInput {
@@ -179,20 +180,22 @@ page {
   border-bottom: solid #ccc 1rpx;
   margin-left: 10rpx;
   width: 100rpx;
+  color: #aaa;
 }
 
 .netbakeidInput {
   font-size: 30rpx;
   border-bottom: solid #ccc 1rpx;
   margin-left: 10rpx;
+  color: #aaa;
 }
 
 .cell .auth {
   position: absolute;
   right: 10rpx;
   bottom: 10rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
 
 .slider {

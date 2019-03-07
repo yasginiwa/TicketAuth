@@ -29,7 +29,7 @@
         <image src='../../assets/ticket.png'></image>
         <text wx:if='{{item.authstatus == 1}}' class='productname'>{{item.productname}}</text>
         <view class='productnameInput' wx:if='{{item.authstatus == 0}}'>
-          <input placeholder-class='phstyle' placeholder='卡券名称'></input>
+          <input bindinput='productnameInput' placeholder-class='phstyle' placeholder='卡券名称'></input>
         </view>
       </view>
 
@@ -38,7 +38,7 @@
           <image src='../../assets/expectprice.png'></image>
           <text wx:if='{{item.authstatus == 1}}'>{{item.price}}元</text>
           <view class='priceInput' wx:if='{{item.authstatus == 0}}'>
-            <input placeholder-class='phstyle' placeholder='价格'></input>
+            <input bindinput='priceInput' placeholder-class='phstyle' placeholder='价格'></input>
           </view>
         </view>
 
@@ -46,7 +46,7 @@
           <image src='../../assets/id.png'></image>
           <text wx:if='{{item.authstatus == 1}}'>{{item.netbakeid}}</text>
           <view class='netbakeidInput' wx:if='{{item.authstatus == 0}}'>
-            <input placeholder-class='phstyle' placeholder='一网烘焙标识符'></input>
+            <input bindinput='netbakeidInput' placeholder-class='phstyle' placeholder='一网烘焙标识符'></input>
           </view>
         </view>
       </view>

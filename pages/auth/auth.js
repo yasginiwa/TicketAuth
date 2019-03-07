@@ -9,13 +9,16 @@ Page({
   data: {
     expecttickets: [],
     delBtnWidth: 180,
-    authstatus: null
+    authstatus: null,
+    productnameStr: '',
+    priceStr: 0,
+    netbakeidStr: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     wx.showLoading({
       title: '加载中...'
     })
@@ -49,13 +52,12 @@ Page({
       }
     })
 
-
   },
 
   /**
    * 通过点击是绑定的idx返回当前选择的client模型
    */
-  selectedModel: function(e) {
+  selectedModel: function (e) {
     var idx = e.currentTarget.dataset.idx;
     var expectticket = {};
     var obj = {};
@@ -70,18 +72,41 @@ Page({
     return expectticket;
   },
 
+  /**
+   * 产品名称输入
+   */
+  productnameInput: function (e) {
+    this.setData({
+      productnameStr: e.detail.value
+    })
+  },
 
-  onAuthorized: function(e) {
+  /**
+   * 价格输入
+   */
+  priceInput: function (e) {
+    this.setData({
+      priceStr: e.detail.value
+    })
+  },
+
+  /**
+   * 一网烘焙标识符输入
+   */
+  netbakeidInput: function (e) {
+    this.setData({
+      netbakeidStr: e.detail.value
+    })
+  },
+
+  onAuthorized: function (e) {
     wx.showLoading({
       title: '审核中...',
     })
 
-    expectticket = this.selectedModel(e);
-    console.log(expectticket);
-
-    if (!ticket.productname || !ticket.price || !ticket.netbakeid) {
+    if (!this.data.productnameStr || !this.data.priceStr || !this.data.netbakeidStr) {
       wx.showToast({
-        title: 'ID填写不规范',
+        title: '未填写完整...',
         image: '../../assets/warning.png',
         mask: true,
         duration: 2000
@@ -105,7 +130,7 @@ Page({
         rangeParam: rangeParam,
         rangeValue: rangeValue
       },
-      success: function(res) {
+      success: function (res) {
         if (res.data.code == 1) {
 
         } else {
@@ -116,7 +141,7 @@ Page({
           })
         }
       },
-      fail: function(err) {
+      fail: function (err) {
         wx.showToast({
           title: '网络错误！',
           image: '../../assets/fail.png',
@@ -133,12 +158,12 @@ Page({
       url: authupdateUrl,
       method: 'POST',
       data: {
-        sqlParams: ['authstatus', 'netbakeid'],
-        sqlValues: [1, that.data.netbakeid],
+        sqlParams: ['productname', 'price', 'authstatus', 'netbakeid'],
+        sqlValues: [that.data.productnameStr, that.data.priceStr, 1, that.data.netbakeidStr],
         rangeParam: 'e_id',
         rangeValue: expectticket.e_id
       },
-      success: function(res) {
+      success: function (res) {
         if (res.data.code == 1) {
           wx.showToast({
             title: '审核成功！',
@@ -148,7 +173,7 @@ Page({
           })
         }
       },
-      fail: function(res) {
+      fail: function (res) {
         wx.showToast({
           title: '审核失败！',
           image: '../../assets/fail.png',
@@ -169,7 +194,7 @@ Page({
   /**
    * 触摸开始
    */
-  touchS: function(e) {
+  touchS: function (e) {
     var expectticket = this.selectedModel(e);
     //  如果是已审核过的客户 不能被删除
     if (expectticket.authstatus == 1) return;
@@ -185,7 +210,11 @@ Page({
   /**
    * 触摸移动
    */
-  touchM: function(e) {
+  touchM: function (e) {
+    var expectticket = this.selectedModel(e);
+    //  如果是已审核过的客户 不能被删除
+    if (expectticket.authstatus == 1) return;
+
     if (e.touches.length == 1) {
       //手指移动时水平方向位置
       var moveX = e.touches[0].clientX;
@@ -214,7 +243,11 @@ Page({
   /**
    * 触摸结束
    */
-  touchE: function(e) {
+  touchE: function (e) {
+    var expectticket = this.selectedModel(e);
+    //  如果是已审核过的客户 不能被删除
+    if (expectticket.authstatus == 1) return;
+
     if (e.changedTouches.length == 1) {
       //手指移动结束后水平位置
       var endX = e.changedTouches[0].clientX;
@@ -239,7 +272,7 @@ Page({
   /**
    * 滑动一个item
    */
-  slideItem: function(e, style) {
+  slideItem: function (e, style) {
     var expectticket = this.selectedModel(e);
     expectticket.slideStyle = style;
     this.setData({
@@ -250,7 +283,7 @@ Page({
   /**
    * 删除一个item
    */
-  delItem: function(e) {
+  delItem: function (e) {
     // 遍历对象数组 所有的滑动归0
     var expectticket = this.selectedModel(e);
     for (var i in this.data.expecttickets) {
@@ -271,7 +304,7 @@ Page({
         e_id: 'e_id',
         sqlValue: expectticket.e_id
       },
-      success: function(res) {
+      success: function (res) {
         that.onLoad();
         wx.showToast({
           title: '删除成功！',
@@ -280,7 +313,7 @@ Page({
           duration: 2000
         })
       },
-      fail: function() {
+      fail: function () {
         wx.showToast({
           title: '删除失败！',
           image: '../../assets/fail.png',
@@ -294,35 +327,35 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     this.onLoad();
     wx.stopPullDownRefresh();
   },
@@ -330,14 +363,14 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })
