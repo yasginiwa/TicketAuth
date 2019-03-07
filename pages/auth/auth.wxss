@@ -104,7 +104,7 @@ page {
 
 .cell .content .sec3 image {
   width: 34rpx;
-  height: 32rpx;
+  height: 34rpx;
 }
 
 .cell .content .sec4 {
@@ -124,8 +124,8 @@ page {
 }
 
 .cell .content .sec4 .price image {
-  width: 32rpx;
-  height: 32rpx;
+  width: 34rpx;
+  height: 34rpx;
 }
 
 .cell .content .sec4 .netbakeid {
@@ -194,8 +194,8 @@ page {
   position: absolute;
   right: 10rpx;
   bottom: 10rpx;
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 
 .slider {
