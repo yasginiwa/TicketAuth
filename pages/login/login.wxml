@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view class='welcome'>
 <image src='../../assets/logo.png'></image>
-<text>欢迎登录客户审核系统</text>
+<text>欢迎登录卡券审核系统</text>
 </view>
 
 <form class='login' bindsubmit='loginSubmit'>
@@ -18,6 +18,8 @@
     <input placeholder='请输入登陆密码' placeholder-style='font-size:32rpx;color:#c0c0c0;' name='password' password='true' bindinput='onPwdInput' value='{{password}}'></input>
     </view>
   </view>
+
+  <view bindtap='registryAccount' class='registry'>立即注册</view>
 
   <button class='submit' form-type='submit' disabled='{{!loginBtnStatus}}'>登 录</button>
 </form>

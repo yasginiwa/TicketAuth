@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/auth/auth"
+    "pages/auth/auth",
+    "pages/registry/registry"
   ],
   "window": {
     "backgroundTextStyle": "light",

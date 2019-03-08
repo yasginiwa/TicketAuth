@@ -62,8 +62,15 @@
   height: 70rpx;
 }
 
+.login .registry
+{
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  color: #398DF6;
+}
+
 .login .submit {
-  margin-top: 80rpx;
+  margin-top: 30rpx;
   background-color: #0079C0;
   color: white;
   width: 60%;

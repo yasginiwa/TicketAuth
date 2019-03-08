@@ -113,6 +113,16 @@ Page({
 
   },
 
+
+  /***
+   * 注册账号
+   */
+  registryAccount: function() {
+    wx.navigateTo({
+      url: '../registry/registry',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
