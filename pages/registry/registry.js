@@ -1,5 +1,6 @@
 // pages/registry/registry.js
 let util = require('../../utils/util.js');
+var api = require('../../utils/api.js');
 
 Page({
 
@@ -54,6 +55,23 @@ Page({
     } else {
       this.setData({
         btnDisable: true
+      })
+    }
+  },
+
+  onRegistry: function() {
+    if(this.data.pw !== this.data.confirmpw) {
+      wx.showToast({
+        title: '密码输入不一致',
+        image: '../../assets/warning.png',
+        duration: 2000
+      })
+    } else {
+      let userregistryUrl = api.userregistryUrl;
+
+      wx.request({
+        url: userregistryUrl,
+        
       })
     }
   },

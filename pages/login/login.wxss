@@ -64,9 +64,9 @@
 
 .login .registry
 {
-  font-size: 28rpx;
+  font-size: 26rpx;
   margin-top: 20rpx;
-  color: #398DF6;
+  color: #0079C0;
 }
 
 .login .submit {

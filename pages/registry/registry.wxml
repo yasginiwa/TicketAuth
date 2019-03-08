@@ -1,6 +1,6 @@
 <!--pages/registry/registry.wxml-->
 <view class='sec1'>
-  <image src='../../assets/logo.png'></image>
+  <image src='../../assets/registry.png'></image>
 </view>
 
 <view class='sec2'>
@@ -26,5 +26,5 @@
 </view>
 
 <view class='sec4'>
-<button disabled='{{btnDisable}}' type='default'>注 册</button>
+<button bindtap='onRegistry' disabled='{{btnDisable}}' type='default'>注 册</button>
 </view>

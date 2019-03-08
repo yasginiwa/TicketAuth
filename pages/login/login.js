@@ -23,7 +23,7 @@ Page({
   /**
    * 用户名输入
    */
-  onUserInput: function(e) {
+  onUserInput: function (e) {
     this.setData({
       username: e.detail.value
     })
@@ -33,7 +33,7 @@ Page({
   /**
    * 密码输入
    */
-  onPwdInput: function(e) {
+  onPwdInput: function (e) {
     this.setData({
       password: e.detail.value
     })
@@ -74,18 +74,16 @@ Page({
         username: username
       },
       success: function (res) {
+        console.log(res);
         wx.hideLoading();
-        if (res.data.result[0]) {
-          if (password === res.data.result[0].password) {
+        if (password === res.data.result[0].password && res.data.result[0].granted == 1) {
+          if (res.data.result[0].superuser == 0) {
             wx.navigateTo({
               url: '../auth/auth',
             })
           } else {
-            wx.showToast({
-              title: '用户名或密码错误',
-              image: '../../assets/fail.png',
-              mask: true,
-              duration: 2000
+            wx.navigateTo({
+              url: '../userauth/userauth',
             })
           }
         } else {
@@ -107,7 +105,7 @@ Page({
         })
       },
       complete: function (res) {
-        
+
       }
     })
 
@@ -117,7 +115,7 @@ Page({
   /***
    * 注册账号
    */
-  registryAccount: function() {
+  registryAccount: function () {
     wx.navigateTo({
       url: '../registry/registry',
     })
