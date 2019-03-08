@@ -4,7 +4,7 @@ var safeBase64 = require('../utils/safebase64.js')
 var host = 'http://192.168.0.172:10444';
 var ticketGenUrl = `${host}/icapi/tmticket`,
   ticketQueryUrl = `${host}/icapi/tmticketquery`,
-  getwxopenidUrl = `${host}/getwxopenid`,
+  getticketauthwxopenidUrl = `${host}/getticketauthwxopenid`,
   querywxopenidsUrl = `${host}/querywxopenids`,
   registryUrl = `${host}/registry`,
   updateregistryUrl = `${host}/updateregistry`,
@@ -65,7 +65,7 @@ module.exports = {
   sign: sign,
   ticketGenUrl: ticketGenUrl,
   ticketQueryUrl: ticketQueryUrl,
-  getwxopenidUrl: getwxopenidUrl,
+  getticketauthwxopenidUrl: getticketauthwxopenidUrl,
   querywxopenidsUrl: querywxopenidsUrl,
   registryUrl: registryUrl,
   updateregistryUrl: updateregistryUrl,
@@ -83,6 +83,7 @@ module.exports = {
   expectunauthUrl: expectunauthUrl,
   expectauthUrl: expectauthUrl,
   queryregistryUrl: queryregistryUrl,
+  userregistryUrl: userregistryUrl,
   encryptContent: encryptContent,
   decryptContent: decryptContent
 };

@@ -9,15 +9,15 @@ Page({
    */
   data: {
     btnDisable: true,
-    name: '',
+    userusername: '',
     phone: '',
-    pw: '',
-    confirmpw: ''
+    password: '',
+    confirmpassword: ''
   },
 
-  nameInput: function (e) {
+  usernameInput: function (e) {
     this.setData({
-      name: e.detail.value
+      username: e.detail.value
     })
     this.onInput();
   },
@@ -29,26 +29,26 @@ Page({
     this.onInput();
   },
 
-  pwInput: function (e) {
+  passwordInput: function (e) {
     this.setData({
-      pw: e.detail.value
+      password: e.detail.value
     })
     this.onInput();
   },
 
-  pwConfirmInput: function (e) {
+  passwordConfirmInput: function (e) {
     this.setData({
-      confirmpw: e.detail.value
+      confirmpassword: e.detail.value
     })
     this.onInput();
   },
 
   onInput: function() {
-    let name = this.data.name,
+    let username = this.data.username,
       phone = this.data.phone,
-      pw = this.data.pw,
-      confirmpw = this.data.confirmpw;
-    if (name.length && phone.length && pw.length && confirmpw.length) {
+      password = this.data.password,
+      confirmpassword = this.data.confirmpassword;
+    if (username.length && phone.length && password.length && confirmpassword.length) {
       this.setData({
         btnDisable: false
       })
@@ -60,18 +60,38 @@ Page({
   },
 
   onRegistry: function() {
-    if(this.data.pw !== this.data.confirmpw) {
+    if(this.data.password !== this.data.confirmpassword) {
       wx.showToast({
         title: '密码输入不一致',
         image: '../../assets/warning.png',
         duration: 2000
       })
     } else {
-      let userregistryUrl = api.userregistryUrl;
-
+      let userregistryUrl = api.userregistryUrl,
+      wxopenid = wx.getStorageSync('wxopenid'),
+      username = this.data.username,
+      password = this.data.password,
+      phone = this.data.phone,
+      superuser = 0,
+      granted = 0;
+      console.log(wxopenid, username, password, phone, superuser, granted);
       wx.request({
         url: userregistryUrl,
-        
+        method: 'POST',
+        data: {
+          wxopenid: wxopenid,
+          username: username,
+          password: password,
+          phone: phone,
+          superuser: superuser,
+          granted: granted
+        },
+        success: (res) => {
+          console.log(res);
+        },
+        fail: (err) => {
+
+        }
       })
     }
   },
