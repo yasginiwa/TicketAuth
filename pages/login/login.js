@@ -74,8 +74,16 @@ Page({
         username: username
       },
       success: function (res) {
-        console.log(res);
         wx.hideLoading();
+        if (res.data.result.length == 0) {
+          wx.showToast({
+            title: '用户名或密码错误',
+            image: '../../assets/fail.png',
+            mask: true,
+            duration: 2000
+          })
+          return;
+        }
         if (password === res.data.result[0].password && res.data.result[0].granted == 1) {
           if (res.data.result[0].superuser == 0) {
             wx.navigateTo({
@@ -103,9 +111,6 @@ Page({
           mask: true,
           duration: 2000
         })
-      },
-      complete: function (res) {
-
       }
     })
 

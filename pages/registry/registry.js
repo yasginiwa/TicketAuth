@@ -1,6 +1,7 @@
 // pages/registry/registry.js
 let util = require('../../utils/util.js');
-var api = require('../../utils/api.js');
+const api = require('../../utils/api.js');
+const crypto = requirePlugin('Crypto');
 
 Page({
 
@@ -43,7 +44,7 @@ Page({
     this.onInput();
   },
 
-  onInput: function() {
+  onInput: function () {
     let username = this.data.username,
       phone = this.data.phone,
       password = this.data.password,
@@ -59,8 +60,9 @@ Page({
     }
   },
 
-  onRegistry: function() {
-    if(this.data.password !== this.data.confirmpassword) {
+  onRegistry: function () {
+
+    if (this.data.password !== this.data.confirmpassword) {
       wx.showToast({
         title: '密码输入不一致',
         image: '../../assets/warning.png',
@@ -68,13 +70,18 @@ Page({
       })
     } else {
       let userregistryUrl = api.userregistryUrl,
-      wxopenid = wx.getStorageSync('wxopenid'),
-      username = this.data.username,
-      password = this.data.password,
-      phone = this.data.phone,
-      superuser = 0,
-      granted = 0;
-      console.log(wxopenid, username, password, phone, superuser, granted);
+        wxopenid = wx.getStorageSync('wxopenid'),
+        username = this.data.username,
+        password = (new crypto.MD5(new crypto.MD5(this.data.password).toString())).toString(),
+        phone = this.data.phone,
+        superuser = 0,
+        granted = 0;
+        
+      wx.showLoading({
+        title: '注册中...',
+        icon: 'none',
+      })
+
       wx.request({
         url: userregistryUrl,
         method: 'POST',
@@ -87,10 +94,28 @@ Page({
           granted: granted
         },
         success: (res) => {
-          console.log(res);
+          wx.hideLoading();
+
+          //  调回登录界面
+          wx.navigateBack({
+            delta: 1
+          })
+
+          //  延时提示
+          setTimeout(() => {
+            wx.showToast({
+              title: '请联系管理员完成注册~',
+              icon: 'none',
+              duration: 3000
+            })
+          }, 1000)
         },
         fail: (err) => {
-
+          wx.showToast({
+            title: '网络错误~~',
+            image: '../../assets/fail.png',
+            duration:2000
+          })
         }
       })
     }

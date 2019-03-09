@@ -1,1 +1,135 @@
 /* pages/userauth/userauth.wxss */
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper .cell {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background-color: white;
+  border-bottom: solid #eee 1rpx;
+  transition: left 0.2s ease-in-out;
+  z-index: 3;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 100%;
+}
+
+.wrapper .authorize {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  right: 40rpx;
+  width: 80rpx;
+  height: 78rpx;
+}
+
+.wrapper .cell .content {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 20rpx;
+}
+
+.wrapper .cell .content .sec1 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-bottom: 10rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.wrapper .cell .content .sec1 image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.wrapper .cell .content .sec1 text {
+  margin-left: 20rpx;
+}
+
+.wrapper .cell .content .sec2 {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 28rpx;
+  align-items: center;
+}
+
+.wrapper .cell .content .sec2 image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.wrapper .cell .content .sec2 text {
+  margin-left: 20rpx;
+  color: #aaa;
+}
+
+.wrapper .cell .content .sec3 {
+  font-size: 28rpx;
+}
+
+.wrapper .cell .content .sec3 .radio {
+  position: relative;
+  left: -40rpx;
+  color: #aaa;
+  font-size: 44rpx;
+}
+
+.wrapper .cell .content .sec3 .radio .wx-radio-input {
+  margin-right: 20rpx;
+}
+
+.wrapper .cell .content .sec3 .radio radio {
+  transform: scale(0.65);
+}
+
+.wrapper .cell .content .sec3 image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.wrapper .cell .content .sec3 .user {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.wrapper .cell .content .sec3 .user image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.wrapper .cell .content .sec3 .user text {
+  margin-left: 20rpx;
+  color: #aaa;
+  font-size: 28rpx;
+}
+
+.wrapper .del {
+  position: absolute;
+  background-color: #e64340;
+  width: 180rpx;
+  text-align: center;
+  z-index: 2;
+  right: 0rpx;
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  top: 0rpx;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}

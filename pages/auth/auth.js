@@ -186,8 +186,8 @@ Page({
       }
     })
 
-    //  设置申领券总数到本地存储
-    wx.setStorageSync('totalcount', expectticket.expectnumbers);
+    // //  设置申领券总数到本地存储
+    // wx.setStorageSync('totalcount', expectticket.expectnumbers);
   },
 
 

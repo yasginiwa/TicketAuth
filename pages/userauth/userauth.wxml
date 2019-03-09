@@ -1,2 +1,37 @@
 <!--pages/userauth/userauth.wxml-->
-<text>pages/userauth/userauth.wxml</text>
+<view class='wrapper' wx:if='{{users.length > 0}}' wx:for='{{users}}' wx:key=''>
+
+    <view class='cell' style='{{item.slideStyle}};' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' data-idx='{{item.u_id}}'>
+      <image class='authorize' src='../../assets/unauthorize.png' wx:if='{{item.granted == 0}}' bindtap='onAuthorize' data-idx='{{item.u_id}}'></image>
+      <image class='authorize' src='../../assets/authorized.png' wx:if='{{item.granted == 1}}'></image>
+      <view class='content'>
+        <view class='sec1'>
+          <image src='../../assets/client.png'></image>
+          <text>{{item.username}}</text>
+        </view>
+
+        <view class='sec2'>
+          <image src='../../assets/phone.png'></image>
+          <text>{{item.phone}}</text>
+        </view>
+
+        <view class='sec3'>
+          <view class='user' wx:if='{{item.granted == 1}}'>
+            <image src='../../assets/superuser.png' wx:if='{{item.superuser == 1}}'></image>
+            <text wx:if='{{item.superuser == 1}}'>超级用户</text>
+            <image src='../../assets/normaluser.png' wx:if='{{item.superuser == 0}}'></image>
+            <text wx:if='{{item.superuser == 0}}'>审核用户</text>
+          </view>
+          <form wx:if='{{item.granted == 0}}'>
+            <radio-group bindchange='onRadioChange' data-idx='{{item.u_id}}'>
+              <label class='radio' wx:for='{{userRoles}}' wx:key=''>
+                <radio color='#0079C0' value='{{item.name}}' checked='{{item.checked}}'>{{item.value}} </radio>
+              </label>
+            </radio-group>
+          </form>
+        </view>
+      </view>
+    </view>
+
+    <view class='del' catchtap='delItem' data-idx='{{item.u_id}}'>删除</view>
+</view>

@@ -1,7 +1,7 @@
 const crypto = requirePlugin('Crypto');
 var safeBase64 = require('../utils/safebase64.js')
 
-var host = 'http://192.168.0.172:10444';
+var host = 'http://192.168.10.214:10444';
 var ticketGenUrl = `${host}/icapi/tmticket`,
   ticketQueryUrl = `${host}/icapi/tmticketquery`,
   getticketauthwxopenidUrl = `${host}/getticketauthwxopenid`,
@@ -23,6 +23,9 @@ var ticketGenUrl = `${host}/icapi/tmticket`,
   expectauthUrl = `${host}/expectauth`,
   queryregistryUrl = `${host}/queryregistry`,
   userregistryUrl = `${host}/userregistry`,
+  userauthUrl = `${host}/userauth`,
+  userdelUrl = `${host}/userdel`,
+  userupdateUrl = `${host}/userupdate`,
   token = 'HGCakeECSell',
   appKey = 'SEdDYWtlT3JkZXJBbmRTZWxsMjAxOA==',
   signKey = 'BPe2XMzYP6UydzAuWiPuthAWVrMWkbmC';
@@ -84,6 +87,9 @@ module.exports = {
   expectauthUrl: expectauthUrl,
   queryregistryUrl: queryregistryUrl,
   userregistryUrl: userregistryUrl,
+  userauthUrl: userauthUrl,
+  userdelUrl: userdelUrl,
+  userupdateUrl: userupdateUrl,
   encryptContent: encryptContent,
   decryptContent: decryptContent
 };
