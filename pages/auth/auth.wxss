@@ -31,7 +31,7 @@ page {
   flex-flow: row nowrap;
   align-items: center;
   background-color: white;
-  height: 350rpx;
+  height: 360rpx;
   width: 100%;
   margin-bottom: 10rpx;
   transition: left 0.2s ease-in-out;
@@ -84,6 +84,13 @@ page {
 }
 
 .cell .content .sec2 .phone {
+  display: inherit;
+  flex-flow: inherit;
+  align-items: inherit;
+  margin-left: 40rpx;
+}
+
+.cell .content .sec2 .numbers {
   display: inherit;
   flex-flow: inherit;
   align-items: inherit;
@@ -150,17 +157,27 @@ page {
   margin-left: 10rpx;
 }
 
-.cell .content .sec5 .numbers {
+.cell .content .sec5 .startdate {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
 }
 
-.cell .content .sec5 .date {
+.cell .content .sec5 .startdate image {
+  width: 32rpx;
+  height: 30rpx;
+}
+
+.cell .content .sec5 .enddate {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+}
+
+.cell .content .sec5 .enddate image {
   margin-left: 40rpx;
+  width: 32rpx;
+  height: 30rpx;
 }
 
 .phstyle {
@@ -188,6 +205,23 @@ page {
   border-bottom: solid #ccc 1rpx;
   margin-left: 10rpx;
   color: #aaa;
+  width: 220rpx;
+}
+
+.startdateInput {
+  font-size: 30rpx;
+  border-bottom: solid #ccc 1rpx;
+  margin-left: 10rpx;
+  color: #aaa;
+  width: 200rpx;
+}
+
+.enddateInput {
+  font-size: 30rpx;
+  border-bottom: solid #ccc 1rpx;
+  margin-left: 10rpx;
+  color: #aaa;
+  width: 200rpx;
 }
 
 .cell .auth {
@@ -212,9 +246,9 @@ page {
   z-index: 2;
   right: 0rpx;
   color: white;
-  height: 350rpx;
+  height: 360rpx;
   font-size: 32rpx;
-  line-height: 350rpx;
+  line-height: 360rpx;
   font-weight: bold;
   top: 0rpx;
 }

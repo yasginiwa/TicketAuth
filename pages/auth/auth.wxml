@@ -23,6 +23,11 @@
           <image src='../../assets/phone.png'></image>
           <text>{{item.phone}}</text>
         </view>
+
+        <view class='numbers'>
+          <image src='../../assets/numbers.png'></image>
+          <text>{{item.expectnumbers}}张</text>
+        </view>
       </view>
 
       <view class='sec3'>
@@ -52,14 +57,24 @@
       </view>
 
       <view class='sec5'>
-        <view class='numbers'>
-          <image src='../../assets/numbers.png'></image>
-          <text>{{item.expectnumbers}}张</text>
+        <view class='startdate'>
+          <image src='../../assets/startdate.png'></image>
+          <text wx:if='{{item.authstatus == 1}}'>{{item.limitstartdate}}</text>
+          <view class='startdateInput' wx:if='{{item.authstatus == 0}}'>
+            <picker bindchange='startdateInput' mode='date' start='2019-01-01' end='2030-01-01'>
+              <input placeholder-class='phstyle' placeholder='有效起始时间' value='{{limitstartdate}}'></input>
+            </picker>
+          </view>
         </view>
 
-        <view class='date'>
-          <image src='../../assets/expectdate.png'></image>
-          <text>{{item.expectdate}}</text>
+        <view class='enddate'>
+          <image src='../../assets/enddate.png'></image>
+          <text wx:if='{{item.authstatus == 1}}'>{{item.limitenddate}}</text>
+          <view class='enddateInput' wx:if='{{item.authstatus == 0}}'>
+            <picker bindchange='enddateInput' mode='date' start='2019-01-01' end='2030-01-01'>
+              <input placeholder-class='phstyle' placeholder='有效结束时间' value='{{limitenddate}}'></input>
+            </picker>
+          </view>
         </view>
       </view>
 

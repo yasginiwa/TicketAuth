@@ -12,7 +12,9 @@ Page({
     authstatus: null,
     productnameStr: '',
     priceStr: 0,
-    netbakeidStr: 0
+    netbakeidStr: 0,
+    limitstartdate: '',
+    limitenddate: ''
   },
 
   /**
@@ -29,6 +31,7 @@ Page({
       url: queryregistryUrl,
       method: 'POST',
       success: (res) => {
+        console.log(res);
         var expectticket = {};
         var expecttickets = [];
         for (var i in res.data.result.recordsets[0]) {
@@ -36,6 +39,8 @@ Page({
           expectticket.price = dateUtil.formatMoney(expectticket.price);
           expectticket.expectdate = dateUtil.formatLocal(expectticket.expectdate);
           expectticket.authstatus = (expectticket.authstatus == 0) ? 0 : expectticket.authstatus;
+          expectticket.limitstartdate = dateUtil.formatLocalDate(expectticket.limitstartdate);
+          expectticket.limitenddate = dateUtil.formatLocalDate(expectticket.limitenddate);
           expecttickets.push(expectticket);
         }
         this.setData({
@@ -99,6 +104,24 @@ Page({
     })
   },
 
+  /**
+   * 申领券起始时间
+   */
+  startdateInput: function(e) {
+    this.setData({
+      limitstartdate: e.detail.value
+    })
+  },
+
+  /**
+   * 申领券结束时间
+   */
+  enddateInput: function(e) {
+    this.setData({
+      limitenddate: e.detail.value
+    })
+  },
+
   onAuthorized: function (e) {
     wx.showLoading({
       title: '审核中...',
@@ -158,8 +181,8 @@ Page({
       url: authupdateUrl,
       method: 'POST',
       data: {
-        sqlParams: ['productname', 'price', 'authstatus', 'netbakeid'],
-        sqlValues: [that.data.productnameStr, that.data.priceStr, 1, that.data.netbakeidStr],
+        sqlParams: ['productname', 'price', 'authstatus', 'netbakeid', 'limitstartdate', 'limitenddate'],
+        sqlValues: [that.data.productnameStr, that.data.priceStr, 1, that.data.netbakeidStr, that.data.limitstartdate, that.data.limitenddate],
         rangeParam: 'e_id',
         rangeValue: expectticket.e_id
       },
