@@ -31,7 +31,6 @@ Page({
       url: queryregistryUrl,
       method: 'POST',
       success: (res) => {
-        console.log(res);
         var expectticket = {};
         var expecttickets = [];
         for (var i in res.data.result.recordsets[0]) {
