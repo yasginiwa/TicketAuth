@@ -43,7 +43,7 @@
           <image src='../../assets/expectprice.png'></image>
           <text wx:if='{{item.authstatus == 1}}'>{{item.price}}元</text>
           <view class='priceInput' wx:if='{{item.authstatus == 0}}'>
-            <input bindinput='priceInput' placeholder-class='phstyle' placeholder='价格'></input>
+            <input type='digit' bindinput='priceInput' placeholder-class='phstyle' placeholder='价格'></input>
           </view>
         </view>
 
@@ -51,7 +51,7 @@
           <image src='../../assets/id.png'></image>
           <text wx:if='{{item.authstatus == 1}}'>{{item.netbakeid}}</text>
           <view class='netbakeidInput' wx:if='{{item.authstatus == 0}}'>
-            <input bindinput='netbakeidInput' placeholder-class='phstyle' placeholder='一网烘焙标识符'></input>
+            <input type='number' bindinput='netbakeidInput' placeholder-class='phstyle' placeholder='一网烘焙标识符'></input>
           </view>
         </view>
       </view>
@@ -62,7 +62,7 @@
           <text wx:if='{{item.authstatus == 1}}'>{{item.limitstartdate}}</text>
           <view class='startdateInput' wx:if='{{item.authstatus == 0}}'>
             <picker bindchange='startdateInput' mode='date' start='2019-01-01' end='2030-01-01'>
-              <input placeholder-class='phstyle' placeholder='有效起始时间' value='{{limitstartdate}}'></input>
+              <input disabled='true' placeholder-class='phstyle' placeholder='有效起始时间' value='{{limitstartdate}}'></input>
             </picker>
           </view>
         </view>
@@ -72,7 +72,7 @@
           <text wx:if='{{item.authstatus == 1}}'>{{item.limitenddate}}</text>
           <view class='enddateInput' wx:if='{{item.authstatus == 0}}'>
             <picker bindchange='enddateInput' mode='date' start='2019-01-01' end='2030-01-01'>
-              <input placeholder-class='phstyle' placeholder='有效结束时间' value='{{limitenddate}}'></input>
+              <input disabled='true' placeholder-class='phstyle' placeholder='有效结束时间' value='{{limitenddate}}'></input>
             </picker>
           </view>
         </view>
