@@ -207,9 +207,6 @@ Page({
         that.onLoad();
       }
     })
-
-    // //  设置申领券总数到本地存储
-    // wx.setStorageSync('totalcount', expectticket.expectnumbers);
   },
 
 
@@ -218,6 +215,7 @@ Page({
    */
   touchS: function (e) {
     var expectticket = this.selectedModel(e);
+    console.log(expectticket);
     //  如果是已审核过的客户 不能被删除
     if (expectticket.authstatus == 1) return;
 
@@ -308,7 +306,7 @@ Page({
   delItem: function (e) {
     // 遍历对象数组 所有的滑动归0
     var expectticket = this.selectedModel(e);
-    for (var i in this.data.expecttickets) {
+    for (var i in this.data.expecttickets.reverse()) {
       expectticket = this.data.expecttickets[i];
       expectticket.slideStyle = 'left:0rpx';
     }
