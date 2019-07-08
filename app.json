@@ -3,7 +3,8 @@
     "pages/login/login",
     "pages/auth/auth",
     "pages/registry/registry",
-    "pages/userauth/userauth"
+    "pages/userauth/userauth",
+    "pages/authdetail/authdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

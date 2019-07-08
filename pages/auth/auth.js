@@ -215,7 +215,6 @@ Page({
    */
   touchS: function (e) {
     var expectticket = this.selectedModel(e);
-    console.log(expectticket);
     //  如果是已审核过的客户 不能被删除
     if (expectticket.authstatus == 1) return;
 
@@ -341,6 +340,16 @@ Page({
           duration: 2000
         })
       }
+    })
+  },
+
+  /**
+   * 点击进入审核详情
+   */
+  onClickToDetail: function (e) {
+    var expectticket = this.selectedModel(e);
+    wx.navigateTo({
+      url: `../authdetail/authdetail?wxopenid=${expectticket.wxopenid}&expectdate=${expectticket.expectdate}`
     })
   },
 

@@ -1,0 +1,26 @@
+<!--pages/authdetail/authdetail.wxml-->
+<view class='nocontent' wx:if='{{tickets.length == 0}}'>
+  <image src='../../assets/norecord.png'></image>
+  <text>暂无卡券~~</text>
+</view>
+
+<view class='group' wx:for='{{tickets}}' wx:key=''>
+
+  <view class='cell'>
+    <image class='icon' src='../../assets/ticketDetail.png'></image>
+    <view class='content'>
+      <text class='productname'>{{item.productname}}</text>
+              <text class='distribute-status' wx:if='{{item.distributestatus}}'>已发顾客</text>
+      <view class='detail'>
+
+        <image class='priceimg' src='../../assets/price.png'></image>
+        <text class='price'>{{item.price}}元</text>
+        <image class='noimg' src='../../assets/ticketno.png'></image>
+        <text class='no'>{{item.ticketno}}</text>
+        <image class='barimg' src='../../assets/barcode.png'></image>
+        <text class='bar'>{{item.ticketcode}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>
