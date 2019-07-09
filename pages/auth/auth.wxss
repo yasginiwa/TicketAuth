@@ -47,6 +47,13 @@ page {
   margin-left: 20rpx;
 }
 
+.cell .content .more {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 40rpx;
+}
+
 .cell .content image {
   width: 30rpx;
   height: 30rpx;
@@ -57,8 +64,6 @@ page {
   color: #aaa;
 }
 
-.cell .content .sec1 {
-}
 
 .cell .content .sec1 text {
   font-size: 34rpx;

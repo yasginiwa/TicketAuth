@@ -5,9 +5,11 @@
 </view>
 
 <view class='slider' wx:if='{{expecttickets.length > 0}}' wx:for='{{expecttickets}}' wx:key=''>
-  <view class='cell' style='{{item.slideStyle}};' bindtap='onClickToDetail' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' data-idx='{{item.e_id}}'>
+  <view class='cell' style='{{item.slideStyle}};' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' data-idx='{{item.e_id}}'>
 
     <view class='content'>
+
+      <image class='more' wx:if='{{item.authstatus == 1}}' src='../../assets/more.png' bindtap='onClickToDetail' data-idx='{{item.e_id}}'></image>
 
       <view class='sec1'>
         <text class='company'>{{item.company}}</text>
