@@ -80,6 +80,20 @@
         </view>
       </view>
 
+      <view class='sec6'>
+        <view class='desc1'>
+        <text>描述1：</text>
+        <text wx:if='{{item.authstatus && item.desc1}}'>{{item.desc1}}</text>
+        <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述1' bindinput='desc1Input' placeholder-class='phstyle' value='{{desc1}}'></input>
+        </view>
+
+        <view class='desc2'>
+        <text>描述2：</text>
+        <text wx:if='{{item.authstatus && item.desc1}}'>{{item.desc2}}</text>
+        <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述2' bindinput='desc2Input' placeholder-class='phstyle' value='{{desc2}}'></input>
+        </view>
+      </view>
+
     </view>
 
     <image wx:if='{{item.authstatus==0}}' class='auth' src='../../assets/unauth.png' bindtap='onAuthorized' data-idx='{{item.e_id}}'></image>

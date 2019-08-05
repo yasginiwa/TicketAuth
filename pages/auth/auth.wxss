@@ -16,7 +16,7 @@ page {
   position: absolute;
   width: 150rpx;
   height: 150rpx;
-  top: 400rpx;
+  top: 320rpx;
 }
 
 .nocontent text {
@@ -31,7 +31,7 @@ page {
   flex-flow: row nowrap;
   align-items: center;
   background-color: white;
-  height: 360rpx;
+  height: 500rpx;
   width: 100%;
   margin-bottom: 10rpx;
   transition: left 0.2s ease-in-out;
@@ -185,6 +185,26 @@ page {
   height: 30rpx;
 }
 
+.cell .content .sec6 {
+
+}
+
+.cell .content .sec6 .desc1 {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  align-items: center;
+}
+
+.cell .content .sec6 .desc2 {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  align-items: center;
+}
+
 .phstyle {
   font-size: 30rpx;
   color: #ccc;
@@ -229,6 +249,18 @@ page {
   width: 200rpx;
 }
 
+.desc1 {
+  font-size: 30rpx;
+  color: #aaa;
+  width: 500rpx;
+}
+
+.desc2 {
+  font-size: 30rpx;
+  color: #aaa;
+  width: 500rpx;
+}
+
 .cell .auth {
   position: absolute;
   right: 10rpx;
@@ -251,9 +283,9 @@ page {
   z-index: 2;
   right: 0rpx;
   color: white;
-  height: 360rpx;
+  height: 500rpx;
   font-size: 32rpx;
-  line-height: 360rpx;
+  line-height: 500rpx;
   font-weight: bold;
   top: 0rpx;
 }

@@ -1,6 +1,6 @@
 // pages/auth/auth.js
 var api = require('../../utils/api.js');
-const dateUtil = require('../../utils/util.js');
+let dateUtil = require('../../utils/util.js');
 
 Page({
   /**
@@ -14,7 +14,9 @@ Page({
     priceStr: 0,
     netbakeidStr: 0,
     limitstartdate: '',
-    limitenddate: ''
+    limitenddate: '',
+    desc1: '',
+    desc2: ''
   },
 
   /**
@@ -31,6 +33,7 @@ Page({
       url: queryregistryUrl,
       method: 'POST',
       success: (res) => {
+        console.log(res);
         var expectticket = {};
         var expecttickets = [];
         for (var i in res.data.result.recordsets[0]) {
@@ -40,8 +43,11 @@ Page({
           expectticket.authstatus = (expectticket.authstatus == 0) ? 0 : expectticket.authstatus;
           expectticket.limitstartdate = dateUtil.formatLocalDate(expectticket.limitstartdate);
           expectticket.limitenddate = dateUtil.formatLocalDate(expectticket.limitenddate);
+          expectticket.desc1 = expectticket.desc1;
+          expectticket.desc2 = expectticket.desc2;
           expecttickets.push(expectticket);
         }
+
         this.setData({
           expecttickets: res.data.result.recordsets[0].reverse()
         })
@@ -107,8 +113,9 @@ Page({
    * 申领券起始时间
    */
   startdateInput: function(e) {
+    let startTime= e.detail.value;
     this.setData({
-      limitstartdate: e.detail.value
+      limitstartdate: startTime
     })
   },
 
@@ -116,8 +123,28 @@ Page({
    * 申领券结束时间
    */
   enddateInput: function(e) {
+    let endTime = e.detail.value
     this.setData({
-      limitenddate: e.detail.value
+      limitenddate: endTime
+    })
+  },
+
+  /**
+   * 描述1输入
+   */
+  desc1Input: function(e) {
+    console.log(e.detail.value);
+    this.setData({
+      desc1: e.detail.value
+    })
+  },
+
+  /**
+   * 描述2输入
+   */
+  desc2Input: function(e) {
+    this.setData({
+      desc2: e.detail.value
     })
   },
 
@@ -176,12 +203,14 @@ Page({
     //  审核申领的券
     var expectticket = this.selectedModel(e),
       authupdateUrl = api.authupdateUrl;
+      console.log(that.data.desc1);
+      console.log(that.data.desc2);
     wx.request({
       url: authupdateUrl,
       method: 'POST',
       data: {
-        sqlParams: ['productname', 'price', 'authstatus', 'netbakeid', 'limitstartdate', 'limitenddate'],
-        sqlValues: [that.data.productnameStr, that.data.priceStr, 1, that.data.netbakeidStr, that.data.limitstartdate, that.data.limitenddate],
+        sqlParams: ['productname', 'price', 'authstatus', 'netbakeid', 'limitstartdate', 'limitenddate', 'desc1', 'desc2'],
+        sqlValues: [that.data.productnameStr, that.data.priceStr, 1, that.data.netbakeidStr, `${that.data.limitstartdate} 00:00:00`, `${that.data.limitenddate} 23:59:59`, that.data.desc1, that.data.desc2],
         rangeParam: 'e_id',
         rangeValue: expectticket.e_id
       },
