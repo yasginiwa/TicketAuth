@@ -16,7 +16,9 @@ Page({
     limitstartdate: '',
     limitenddate: '',
     desc1: '',
-    desc2: ''
+    desc2: '',
+    desc3: '',
+    desc4: ''
   },
 
   /**
@@ -45,6 +47,8 @@ Page({
           expectticket.limitenddate = dateUtil.formatLocalDate(expectticket.limitenddate);
           expectticket.desc1 = expectticket.desc1;
           expectticket.desc2 = expectticket.desc2;
+          expectticket.desc3 = expectticket.desc3;
+          expectticket.desc4 = expectticket.desc4;
           expecttickets.push(expectticket);
         }
 
@@ -112,8 +116,8 @@ Page({
   /**
    * 申领券起始时间
    */
-  startdateInput: function(e) {
-    let startTime= e.detail.value;
+  startdateInput: function (e) {
+    let startTime = e.detail.value;
     this.setData({
       limitstartdate: startTime
     })
@@ -122,7 +126,7 @@ Page({
   /**
    * 申领券结束时间
    */
-  enddateInput: function(e) {
+  enddateInput: function (e) {
     let endTime = e.detail.value
     this.setData({
       limitenddate: endTime
@@ -132,7 +136,7 @@ Page({
   /**
    * 描述1输入
    */
-  desc1Input: function(e) {
+  desc1Input: function (e) {
     console.log(e.detail.value);
     this.setData({
       desc1: e.detail.value
@@ -142,9 +146,27 @@ Page({
   /**
    * 描述2输入
    */
-  desc2Input: function(e) {
+  desc2Input: function (e) {
     this.setData({
       desc2: e.detail.value
+    })
+  },
+
+  /**
+   * 描述3输入
+   */
+  desc3Input: function (e) {
+    this.setData({
+      desc3: e.detail.value
+    })
+  },
+
+  /**
+   * 描述4输入
+   */
+  desc4Input: function (e) {
+    this.setData({
+      desc4: e.detail.value
     })
   },
 
@@ -203,18 +225,17 @@ Page({
     //  审核申领的券
     var expectticket = this.selectedModel(e),
       authupdateUrl = api.authupdateUrl;
-      console.log(that.data.desc1);
-      console.log(that.data.desc2);
     wx.request({
       url: authupdateUrl,
       method: 'POST',
       data: {
-        sqlParams: ['productname', 'price', 'authstatus', 'netbakeid', 'limitstartdate', 'limitenddate', 'desc1', 'desc2'],
-        sqlValues: [that.data.productnameStr, that.data.priceStr, 1, that.data.netbakeidStr, `${that.data.limitstartdate} 00:00:00`, `${that.data.limitenddate} 23:59:59`, that.data.desc1, that.data.desc2],
+        sqlParams: ['productname', 'price', 'authstatus', 'netbakeid', 'limitstartdate', 'limitenddate', 'desc1', 'desc2', 'desc3', 'desc4'],
+        sqlValues: [that.data.productnameStr, that.data.priceStr, 1, that.data.netbakeidStr, `${that.data.limitstartdate} 00:00:00`, `${that.data.limitenddate} 23:59:59`, that.data.desc1, that.data.desc2, that.data.desc3, that.data.desc4],
         rangeParam: 'e_id',
         rangeValue: expectticket.e_id
       },
       success: function (res) {
+        console.log(res);
         if (res.data.code == 1) {
           wx.showToast({
             title: '审核成功！',
@@ -225,6 +246,7 @@ Page({
         }
       },
       fail: function (res) {
+        console.log('err', res);
         wx.showToast({
           title: '审核失败！',
           image: '../../assets/fail.png',

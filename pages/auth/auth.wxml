@@ -82,15 +82,27 @@
 
       <view class='sec6'>
         <view class='desc1'>
-        <text>描述1：</text>
-        <text wx:if='{{item.authstatus && item.desc1}}'>{{item.desc1}}</text>
-        <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述1' bindinput='desc1Input' placeholder-class='phstyle' value='{{desc1}}'></input>
+          <text>描述1：</text>
+          <text wx:if='{{item.authstatus && item.desc1}}'>{{item.desc1}}</text>
+          <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述1' bindinput='desc1Input' placeholder-class='phstyle' value='{{desc1}}'></input>
         </view>
 
         <view class='desc2'>
-        <text>描述2：</text>
-        <text wx:if='{{item.authstatus && item.desc1}}'>{{item.desc2}}</text>
-        <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述2' bindinput='desc2Input' placeholder-class='phstyle' value='{{desc2}}'></input>
+          <text>描述2：</text>
+          <text wx:if='{{item.authstatus && item.desc2}}'>{{item.desc2}}</text>
+          <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述2' bindinput='desc2Input' placeholder-class='phstyle' value='{{desc2}}'></input>
+        </view>
+
+        <view class='desc3'>
+          <text>描述3：</text>
+          <text wx:if='{{item.authstatus && item.desc3}}'>{{item.desc3}}</text>
+          <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述3' bindinput='desc3Input' placeholder-class='phstyle' value='{{desc3}}'></input>
+        </view>
+
+        <view class='desc4'>
+          <text>描述4：</text>
+          <text wx:if='{{item.authstatus && item.desc4}}'>{{item.desc4}}</text>
+          <input wx:if='{{item.authstatus == 0}}' placeholder='券详细描述4' bindinput='desc4Input' placeholder-class='phstyle' value='{{desc4}}'></input>
         </view>
       </view>
 
